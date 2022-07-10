@@ -1,0 +1,34 @@
+print('''\nQ6: A 3D list of x rows y columns and z layers (Z x Y x X) will be created where x,y, and z are provided by the user.
+The programme creates the 3D list and fills it with random numbers(0-1000) and then a function will divides the 3D list into m 2D lists.
+import random''')
+
+x = int(input("Enter number of rows please: "))
+y = int(input("Enter number of columns please: "))
+z = int(input("Enter number of 2D lists please: ")) #in our case it's m
+
+mylist = []
+
+#this function just returns a random value between 0 and 1000
+def random_number():
+	return random.randint(0,1000)
+
+#adding z 2D lists with x rows and y columns having random values
+for i in range(z):
+	mylist.append([])
+	  
+	for j in range(y):
+		mylist[i].append([])
+		  
+		for k in range(x):
+			mylist[i][j].append(random_number())
+
+print(f"\n\n3D {x}x {x}x {x}random number list:-")
+print(mylist)
+
+#function that just prints mth 2D list in 3D list
+def list3Dto2D(a,m):
+	for i in range(m):
+		print(a[i])
+
+print("\n\nConverted into m 2D lists:")
+list3Dto2D(mylist,z)
